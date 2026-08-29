@@ -6,12 +6,11 @@ const Posts = () => {
   const [data, setData] = useState([]);
   const [updateDataApi, setUpdateDataApi] = useState({});
 
-  const getPostData = async () => {
-    const res = await getPosts();
-    setData(res.data);
-  };
-
   useEffect(() => {
+    const getPostData = async () => {
+      const res = await getPosts();
+      setData(res.data);
+    };
     getPostData();
   }, []);
 
