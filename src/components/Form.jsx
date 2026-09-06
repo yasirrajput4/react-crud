@@ -30,6 +30,10 @@ const Form = ({ data, setData, updateDataApi, setUpdateDataApi }) => {
   };
 
   const addPostData = async () => {
+    if (addData.title.trim() === "" || addData.body.trim() === "") {
+      alert("Please fill in both title and body fields.");
+      return;
+    }
     const res = await postData(addData);
 
     if (res.status === 201) {
